@@ -1,3 +1,6 @@
+import streamlit as st
+import pandas as pd
+
 # Judul aplikasi
 st.title('Dashboard Analisis Penyewaan Sepeda')
 
