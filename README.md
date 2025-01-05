@@ -34,8 +34,8 @@ Proyek ini bertujuan untuk menganalisis data penyewaan sepeda menggunakan datase
 
 1. **Clone Repositori**:
    ```bash
-   git clone https://github.com/username/bike-sharing-analysis.git
-   cd bike-sharing-analysis
+   git@github.com:rizalkr/Bike-Sharing-Analysis-and-Visualization.git
+   cd Bike-Sharing-Analysis-and-Visualization
    ```
 
 2. **Instalasi Pustaka**:
