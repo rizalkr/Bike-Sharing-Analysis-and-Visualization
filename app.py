@@ -1,18 +1,26 @@
 import streamlit as st
 import pandas as pd
 
-# Judul aplikasi
-st.title('Dashboard Analisis Penyewaan Sepeda')
+# Judul
+st.title('Bike Sharing Dashboard Analyze')
 
-# Bagian Analisis Cluster
-st.header('Analisis Cluster')
-st.text("Metode Elbow untuk menentukan jumlah cluster optimal.")
-st.image('elbow_plot.png', caption='Grafik Elbow')
+# Bagian 1: Visualisasi Metode Elbow
+st.header('Metode Elbow untuk Cluster Optimal')
+st.image('elbow_plot.png', caption='Grafik Elbow untuk Menentukan Cluster Optimal')
 
-# Bagian Analisis RFM
-st.header('Analisis RFM')
-st.text("Hasil analisis RFM pada data penyewaan sepeda.")
-uploaded_file = st.file_uploader("Upload file hasil RFM dalam format CSV", type=["csv"])
+# Bagian 2: Distribusi Skor RFM
+st.header('Distribusi Skor RFM')
+st.image('rfm_distribution.png', caption='Distribusi Skor Recency, Frequency, Monetary')
+
+# Bagian 3: Tabel RFM
+st.header('Tabel Analisis RFM')
+rfm = pd.read_csv('rfm_analysis.csv')
+st.dataframe(rfm)
+
+# Bagian 4: Upload Data Baru
+st.header('Unggah Dataset Baru')
+uploaded_file = st.file_uploader("Upload dataset (CSV)", type=["csv"])
 if uploaded_file:
-    rfm_data = pd.read_csv(uploaded_file)
-    st.dataframe(rfm_data)
+    data = pd.read_csv(uploaded_file)
+    st.write("Pratinjau Data:")
+    st.dataframe(data)
