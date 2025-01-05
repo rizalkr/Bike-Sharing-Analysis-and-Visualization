@@ -1,17 +1,15 @@
-with open('requirements.txt', 'w') as f:
-    f.write("pandas\nmatplotlib\nscikit-learn\nstreamlit\n")
+# Judul aplikasi
+st.title('Dashboard Analisis Penyewaan Sepeda')
 
-print("\nUntuk menjalankan dashboard Streamlit, gunakan skrip berikut:")
-print("""
-import streamlit as st
-
-st.title('Analisis Penyewaan Sepeda')
-
+# Bagian Analisis Cluster
 st.header('Analisis Cluster')
-st.image('elbow_plot.png', caption='Metode Elbow untuk Cluster Optimal')
+st.text("Metode Elbow untuk menentukan jumlah cluster optimal.")
+st.image('elbow_plot.png', caption='Grafik Elbow')
 
+# Bagian Analisis RFM
 st.header('Analisis RFM')
-st.dataframe(rfm)
-
-# Unggah file ini sebagai app.py ke Streamlit Cloud untuk menjalankan dashboard.
-""")
+st.text("Hasil analisis RFM pada data penyewaan sepeda.")
+uploaded_file = st.file_uploader("Upload file hasil RFM dalam format CSV", type=["csv"])
+if uploaded_file:
+    rfm_data = pd.read_csv(uploaded_file)
+    st.dataframe(rfm_data)
